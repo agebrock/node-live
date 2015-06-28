@@ -12,7 +12,7 @@ var context = {};
 
 //mapping lodash to "_" seems to make problems with repl
 var scopeMapping = {
-	bluebird:'Promise',
+	bluebird:['Promise'],
 	lodash:['lodash','l']
 }
 
@@ -25,13 +25,16 @@ _.forEach(pkg.dependencies,function(pkgVersion, pkgName){
 	if(scopeMapping[scopeName]){
 		scopeName = scopeMapping[scopeName];
 	}
-	console.log('Loading: %s into %s',pkgName, scopeName);
+
 	var m = {};
 	if(Array.isArray(scopeName)){
 		scopeName.forEach(function(scopeName){
+            console.log('Loading: %s into %s',pkgName, scopeName);
 			m[scopeName] = require(pkgName);
 		});
 	}else{
+        scopeName = _.camelCase(scopeName);
+        console.log('Loading: %s into %s',pkgName, scopeName);
 		m[scopeName] = require(pkgName);
 	}
 
