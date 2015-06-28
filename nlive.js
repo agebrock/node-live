@@ -40,39 +40,16 @@ _.forEach(pkg.dependencies,function(pkgVersion, pkgName){
 
 	_.extend(context, m);
 });
-var values = require('./lib/values')
-
-
-_.extend(global, context, {v:values});
-
-var transformExtend = function(obj){
-	return function(result, value, key) {
-		result[key] =  l.extend(value, obj);
-	}
+var values = {};
+try{
+    values = require('./scope');
+}catch(e){
+    console.log('WARN: Scope not loaded ! .. using empty one')
 }
 
-var x = l.transform([{ 'a': 1},{ 'a': 2}], transformExtend({foooo:6666}));
-console.log(x)
-/*
-global.dev = {};
-_.forEach(pkg.devDependencies,function(pkgVersion, pkgName){
-	var m = {};
-	m[pkgName] = require(pkgName);
-	_.extend(global.dev, {pkgName:require(pkgName)});
-});
-*/
+_.extend(global, context, values);
 
-/**
-var passTo = function(fn){
-return through2(function (chunk, enc, callback) {
-	    fn(chunk);
-	    callback(null, chunk);
-	});
-}
-**/
-
-
-console.log('Access exampledata: "v.array" ');
+console.log('Your extended scope:');
 console.log(util.inspect(values,{colors:true,depth:null, showHidden:false}));
 
 
@@ -83,13 +60,18 @@ var context = replInstance.context;
 //mod repl to implement custom comamnds
 var originalEval = replInstance.eval;
 function run(cmd, context, filename, callback) {
-
-
+    if(cmd.toString().trim('\n') == 'run'){
+        try{
+            context.cwd = require(process.cwd());
+            console.log('package loaded into "cwd"')
+        }catch(e){
+            console.log('failed to load local context')
+        }
+        return true;
+    }
   return originalEval.apply(this, arguments);
-
 }
+
+
 replInstance.eval = run;
-
-
 module.exports = context;
-

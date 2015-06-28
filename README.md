@@ -18,3 +18,8 @@ to your lib you just need to add it to the dependencies
 ```sh
 $ npm i [nameofyourlib] --save
 ```
+
+## HACK
+Modify the context.js file to what ever you want to autoload.
+type "run" to load current cwd into repl.
+
