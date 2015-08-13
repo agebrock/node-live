@@ -1,5 +1,30 @@
 {
+  "globals": {
+    "angular": true,
+    "_": true,
+    "$": true,
+    "Modernizr": true,
+    "Detectizr": true,
+    "moment": true,
+    "sprintf": true,
+    "SnapEngage": true,
+    "ga": true,
+    "smoothScroll": true,
+    "element": true,
+    "iFrameResize": true,
+    "describe": true,
+    "beforeEach": true,
+    "it": true,
+    "module": true,
+    "inject": true,
+    "expect": true,
+    "Pace": true,
+    "require": true,
+    "Stickyfill": true,
+    "Promise": true
+  },
   "env": {
+    "es6": true,
     "node": true
   },
   "rules": {
@@ -75,9 +100,6 @@
     "no-regex-spaces": [
       2
     ],
-    "no-reserved-keys": [
-      2
-    ],
     "no-sparse-arrays": [
       2
     ],
@@ -112,7 +134,8 @@
     "dot-notation": [
       1,
       {
-        "allowKeywords": true
+        "allowKeywords": true,
+        "allowPattern": "_+"
       }
     ],
     "eqeqeq": [
@@ -321,7 +344,8 @@
       2,
       4,
       {
-        "indentSwitchCase": true
+        "SwitchCase": 1,
+        "VariableDeclarator": 1
       }
     ],
     "brace-style": [
@@ -410,7 +434,7 @@
       0
     ],
     "no-trailing-spaces": [
-      2
+      0
     ],
     "no-underscore-dangle": [
       2
@@ -429,7 +453,8 @@
       0
     ],
     "quote-props": [
-      0
+      1,
+      "as-needed"
     ],
     "quotes": [
       2,
@@ -483,8 +508,9 @@
     "space-unary-word-ops": [
       0
     ],
-    "spaced-line-comment": [
-      2
+    "spaced-comment": [
+      2,
+      "always"
     ],
     "wrap-regex": [
       0
