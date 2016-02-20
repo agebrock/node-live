@@ -5,16 +5,17 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",
-    "eslint": "^0.24.1",
-    "eslint-plugin-mocha": "^0.4.0",
+    "eslint": "2.0.0",
+    "eslint-plugin-mocha": "1.1.0",
     "gulp": "^3.8.11",
-    "gulp-eslint": "^0.15.0",
+    "gulp-eslint": "1.1.1",
     "gulp-istanbul": "^0.10.0",
-    "gulp-jscs": "^1.4.0",
-    "gulp-jshint": "^1.9.2",
+    "gulp-jscs": "3.0.2",
+    "gulp-jshint": "2.0.0",
     "gulp-mocha": "^2.0.0",
-    "istanbul": "^0.3.17",
-    "jscs": "^1.13.1",
+    "istanbul": "0.4.2",
+    "jscs": "2.9.0",
+    "loopback": "2.26.2",
     "mocha": "^2.2.5",
     "run-sequence": "^1.0.2"
   },
@@ -31,19 +32,21 @@
     "coverage-check": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100"
   },
   "bin": {
-    "nlive": "./cli.js"
+    "nlive": "./bin/cli.js"
   },
   "dependencies": {
-    "bluebird": "^2.9.12",
+    "bluebird": "3.3.0",
     "chai": "^3.2.0",
     "expect": "^1.6.0",
     "gulp": "^3.9.0",
-    "lodash": "^3.2.0",
+    "lodash": "4.3.0",
     "micromatch": "^2.1.6",
+    "mocha": "2.4.5",
     "moment": "^2.9.0",
-    "nodemon": "^1.4.0",
-    "shelljs": "^0.5.1",
-    "string-template": "^0.2.1",
+    "mongojs": "2.3.0",
+    "mongoose": "4.4.3",
+    "shelljs": "0.6.0",
+    "sinon": "1.17.3",
     "through2": "^2.0.0",
     "x-ray": "^2.0.2"
   }

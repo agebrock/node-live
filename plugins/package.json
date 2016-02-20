@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "loopback": "^2.19.0",
+    "loopback-boot": "^2.8.2",
+    "loopback-datasource-juggler": "^2.32.0"
+  }
+}
